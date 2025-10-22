@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-contexto="foco">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pomodoro Simples</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="app__header">
+      <img src="./imagens/logo.png" alt="Logo" 
+      class="logo" />
+      <h1>Timer Pomodoro</h1>
+    </header>
+
+    <section class="app__card">
+      <div class="app__tabs">
+        <button class="app__card-button 
+          app__card-button--foco active" data-contexto="foco">Foco
+        </button>
+        <button class="app__card-button 
+          app__card-button--curto" data-contexto="descanso-curto">Descanso Karen
+        </button>
+        <button class="app__card-button 
+          app__card-button--longo" data-contexto="descanso-longo">Descanso Welligton
+        </button>
+      </div>
+
+      <div id="timer" class="timer">25:00</div>
+
+      <div class="controls">
+        <button id="start-pause" class="primary">
+          <img id="start-pause-icon" src="./imagens/play_arrow.png" 
+          alt="Começar/Pausar" />
+          <span>Começar</span>
+        </button>
+
+        <button id="reset" class="ghost">
+          <img src="./imagens/3053865.png" alt="Reiniciar" />
+          <span>Reiniciar</span>
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

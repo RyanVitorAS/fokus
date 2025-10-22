@@ -1,0 +1,152 @@
+/* ========= Reset básico ========= */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; font-family: system-ui, 
+  -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
+
+/* ========= Temas por contexto ========= */
+html[data-contexto="foco"] {
+  --bg-1: #07001b;     /* slate-900 */
+  --bg-2: #1a0063;     /* slate-800 */
+  --accent: #3500c5;   /* green-500 */
+}
+
+html[data-contexto="descanso-curto"] {
+  --accent: #0003b4;   /* blue-500 */
+  background: url('./imagens/karen.png')
+              center center / cover no-repeat fixed;
+}
+
+html[data-contexto="descanso-longo"] {
+  --accent: #9800b6; /* mantém a cor do botão ativa */
+  
+  /* Fundo apenas com a imagem */
+  background: url('./imagens/wellington.png')
+              center center / cover no-repeat fixed;
+}
+
+
+
+body {
+  background: radial-gradient(60% 100% at 50% 0%, var(--bg-2) 0%, 
+  var(--bg-1) 60%);
+  color: #e5e7eb;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.app {
+  width: min(760px, 100%);
+}
+
+.app__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 8px rgba(255,255,255,.08));
+}
+
+h1 {
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: 700;
+  letter-spacing: .2px;
+}
+
+.app__card {
+  background: rgba(0, 0, 0, .25);
+  border: 1px solid rgba(255, 255, 255, .06);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.4);
+  backdrop-filter: blur(8px);
+}
+
+
+.app__tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.app__card-button {
+  background: rgba(255,255,255,.06);
+  color: #e5e7eb;
+  padding: 10px 14px;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform .05s ease, background .2s ease, border-color .2s ease;
+}
+
+.app__card-button:hover { transform: translateY(-1px); }
+.app__card-button:active { transform: translateY(0); }
+
+.app__card-button.active {
+  background: color-mix(in oklab, var(--accent) 24%, black);
+  border-color: color-mix(in oklab, var(--accent) 50%, transparent);
+  color: white;
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 18%, transparent);
+}
+
+
+.timer {
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  font-weight: 800;
+  letter-spacing: .5px;
+  margin: 22px 0 12px;
+  font-size: clamp(3rem, 12vw, 6rem);
+  line-height: 1;
+  color: #fff;
+  text-shadow: 0 10px 30px rgba(0,0,0,.5);
+}
+
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+button.primary,
+button.ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.1);
+  cursor: pointer;
+  font-weight: 700;
+  letter-spacing: .2px;
+}
+
+button.primary {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+button.primary img,
+button.ghost img {
+  width: 22px;
+  height: 22px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+button.ghost {
+  background: rgba(255,255,255,.06);
+  color: #e5e7eb;
+}
+
+button:disabled { opacity: .6; cursor: not-allowed; } 
